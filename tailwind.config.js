@@ -9,6 +9,10 @@ module.exports = {
       'dark-secondary': '#57606A',
       'imagination': '#F6F8FA',
       'white': '#ffffff',
+      'event': '#EFF2FF',
+      'code': '#FFEFF7',
+      'design': '#E4F6FF',
+      'article': '#EBEEF0',
   
     },},
   },

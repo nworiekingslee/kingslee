@@ -30,7 +30,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <p className="text-slate-500 text-sm mx-auto">
+      <p className="text-slate-500 text-sm mx-auto hidden md:block">
         design inspired by{" "}
         <a href="https://kadet.dev/" target="_blank" rel="noreferrer">
           <span className="text-dark">Kadet.dev</span>
