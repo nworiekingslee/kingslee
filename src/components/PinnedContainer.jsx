@@ -3,14 +3,16 @@ import PinnedProject from "./PinnedProject";
 
 const PinnedContainer = ({ projects }) => {
   return (
-    <div>
+    <>
       <p className="font-bold text-sm my-2">PINNED</p>
 
       {/* Pinned Component */}
-      {projects.map((project) => (
-        <PinnedProject project={project} key={project.fields.Number} />
-      ))}
-    </div>
+      <div className="w-full lg:w-[650px] ">
+        {projects.map((project) => (
+          <PinnedProject project={project} key={project.fields.Number} />
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -1,9 +1,18 @@
 import React from "react";
 import PinnedContainer from "../components/PinnedContainer";
+import ActivitiesContainer from "../components/ActivitiesContainer";
 
 const Projects = ({ projects }) => {
   const pinned = projects.filter((project) => project.fields.Pinned);
-  console.log("pinned", pinned);
+  const activities = projects.filter(
+    (project) =>
+      project.fields.Type === "Code" || project.fields.Type === "Design"
+  );
+  const articles = projects.filter(
+    (project) => project.fields.Type === "Article"
+  );
+  const events = projects.filter((project) => project.fields.Type === "Event");
+
   return (
     <div className="container max-w-xl md:max-w-[1280px] mx-auto h-full text-dark-secondary flex justify-between md:justify-between p-4 ">
       <div className="hidden lg:block min-w-[420px] mr-4">
@@ -28,6 +37,9 @@ const Projects = ({ projects }) => {
       {/* right flang */}
       <div className=" w-full lg:w-auto mt-14">
         <PinnedContainer projects={pinned} />
+        <ActivitiesContainer projects={activities} header="MY ACTIVITIES" />
+        <ActivitiesContainer projects={events} header="EVENTS & TALKS" />
+        <ActivitiesContainer projects={articles} header="ARTICLES" />
       </div>
     </div>
   );

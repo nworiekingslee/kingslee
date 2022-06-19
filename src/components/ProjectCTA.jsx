@@ -14,7 +14,7 @@ const ProjectCTA = ({ cta, link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer "
         >
           <img src={live} alt="" className="mr-1" /> {cta}
         </a>
@@ -26,7 +26,7 @@ const ProjectCTA = ({ cta, link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer"
         >
           <img src={code} alt="" className="mr-1" /> {cta}
         </a>
@@ -38,21 +38,23 @@ const ProjectCTA = ({ cta, link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer w-[120px]"
         >
           <img src={caseStudy} alt="" className="mr-1" /> {cta}
         </a>
       ) : (
         ""
       )}
+
+      {/* needs a new icon soon for event website */}
       {cta === "Event website" ? (
         <a
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm align-middle cursor-pointer flex mr-4 w-[120px]"
         >
-          <img src={reportIcon} alt="" className="mr-1" /> {cta}
+          <img src={reportIcon} alt="Event website" className="mr-1" /> {cta}
         </a>
       ) : (
         ""
@@ -62,7 +64,7 @@ const ProjectCTA = ({ cta, link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer"
         >
           <img src={reportIcon} alt="" className="mr-1" /> {cta}
         </a>
@@ -74,7 +76,7 @@ const ProjectCTA = ({ cta, link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer"
         >
           <img src={recording} alt="" className="mr-1" /> {cta}
         </a>
@@ -86,7 +88,7 @@ const ProjectCTA = ({ cta, link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer"
         >
           <img src={read} alt="" className="mr-1" /> {cta}
         </a>
