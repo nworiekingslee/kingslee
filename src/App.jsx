@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       {/* <Home /> */}
-      <Projects projects={projects} />
+      <Projects projects={projects} people={people} />
     </div>
   );
 }

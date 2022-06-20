@@ -1,8 +1,9 @@
 import React from "react";
 import PinnedContainer from "../components/PinnedContainer";
 import ActivitiesContainer from "../components/ActivitiesContainer";
+import PeopleContainer from "../components/PeopleContainer";
 
-const Projects = ({ projects }) => {
+const Projects = ({ projects, people }) => {
   const pinned = projects.filter((project) => project.fields.Pinned);
   const activities = projects.filter(
     (project) =>
@@ -40,6 +41,13 @@ const Projects = ({ projects }) => {
         <ActivitiesContainer projects={activities} header="MY ACTIVITIES" />
         <ActivitiesContainer projects={events} header="EVENTS & TALKS" />
         <ActivitiesContainer projects={articles} header="ARTICLES" />
+        <PeopleContainer people={people} />
+        <p className="text-slate-500 text-sm mx-auto hidden md:block">
+          design inspired by{" "}
+          <a href="https://kadet.dev/" target="_blank" rel="noreferrer">
+            <span className="text-dark">Kadet.dev</span>
+          </a>
+        </p>
       </div>
     </div>
   );

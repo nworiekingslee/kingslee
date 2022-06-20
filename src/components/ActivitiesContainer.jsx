@@ -13,8 +13,6 @@ const ActivitiesContainer = ({ projects, header }) => {
     }
   }
 
-  console.log("article", leftProject);
-
   return (
     <>
       <p className="font-bold text-sm mb-2 mt-10">{header}</p>
