@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
 import Home from "./routes/home";
 import Projects from "./routes/Projects";
-import "./App.css";
+import moon from "./images/icons/moon.svg";
+import sun from "./images/icons/dark/sun.svg";
+import { Route, Switch } from "react-router-dom";
 import Airtable from "airtable";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
+import "./App.css";
 
 const base = new Airtable({
   apiKey: process.env.REACT_APP_AIRTABLE_API_KEY,
@@ -60,6 +61,18 @@ function App() {
 
   return (
     <div className="App dark:bg-dim">
+      <div className="md:hidden h-12 w-4 fixed bottom-28 left-0 bg-slate-100"></div>
+
+      <div
+        onClick={() => themeSwitch()}
+        className="p-3 rounded-full fixed bottom-28 md:bottom-6 left-0 md:left-6 bg-slate-100 dark:bg-dim-secondary cursor-pointer"
+      >
+        {userTheme === "dark" ? (
+          <img src={sun} alt="lightmode" />
+        ) : (
+          <img src={moon} alt="darkmode" />
+        )}
+      </div>
       <Switch>
         <Route
           path="/projects"
@@ -69,8 +82,6 @@ function App() {
               projects={projects}
               people={people}
               userTheme={userTheme}
-              systemTheme={systemTheme}
-              onThemeSwitch={themeSwitch}
               {...props}
             />
           )}
@@ -79,13 +90,7 @@ function App() {
           exact
           path="/"
           render={(props) => (
-            <Home
-              history={props.history}
-              userTheme={userTheme}
-              systemTheme={systemTheme}
-              onThemeSwitch={themeSwitch}
-              {...props}
-            />
+            <Home history={props.history} userTheme={userTheme} {...props} />
           )}
         />
       </Switch>

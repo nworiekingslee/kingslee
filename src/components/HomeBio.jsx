@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../components/Button.jsx";
 import profile from "../images/kingslee.jpg";
 
-const HomeBoi = () => {
+const HomeBoi = ({ userTheme }) => {
   return (
     <div className="w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim">
       <img
@@ -24,7 +24,7 @@ const HomeBoi = () => {
       </div>
 
       <div className="mx-auto">
-        <Button cta="See my adventures" />
+        <Button userTheme={userTheme} cta="See my adventures" />
       </div>
 
       {/* Some extra padding */}

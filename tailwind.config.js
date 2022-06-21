@@ -12,7 +12,7 @@ module.exports = {
       'white': '#ffffff',
       'dim': '#151515',
       'dim-secondary': '#202022',
-      'dim-body': '#7B7B7C',
+      'dim-body': '#949495',
       'event': '#EFF2FF',
       'code': '#FFEFF7',
       'design': '#E4F6FF',
