@@ -7,7 +7,7 @@ const Activities = ({ project }) => {
     project.fields;
 
   return (
-    <div className="w-full bg-imagination p-8 mb-2">
+    <div className="w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary">
       <div className="">
         <ProjecctTag type={Type} />
 

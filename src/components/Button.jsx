@@ -6,7 +6,7 @@ const Button = ({ cta }) => {
   return (
     <Link
       to="projects"
-      className="flex py-[10px] px-[18px] bg-imagination font-medium rounded-md"
+      className="flex py-[10px] px-[18px] bg-imagination dark:bg-dim-secondary dark:text-imagination font-medium rounded-md"
     >
       <p className="mr-2">{cta}</p> <img src={explore} alt="" />
     </Link>

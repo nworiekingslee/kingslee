@@ -4,6 +4,7 @@ import Home from "./routes/home";
 import Projects from "./routes/Projects";
 import "./App.css";
 import Airtable from "airtable";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 const base = new Airtable({
   apiKey: process.env.REACT_APP_AIRTABLE_API_KEY,
@@ -12,6 +13,20 @@ const base = new Airtable({
 function App() {
   const [projects, setProjects] = useState([]);
   const [people, setPeople] = useState([]);
+  const [userTheme, setUserTheme] = useState([]);
+
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const themeSwitch = () => {
+    console.log("tap");
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      setUserTheme("light");
+      return;
+    }
+    document.documentElement.classList.add("dark");
+    setUserTheme("dark");
+  };
 
   useEffect(() => {
     function fetchData() {
@@ -20,7 +35,7 @@ function App() {
           .select({ view: "Grid view" })
           .eachPage((records, fetchNextPage) => {
             setProjects(records);
-            console.log("rce", records);
+            // console.log("rce", records);
             fetchNextPage();
           });
       } catch (e) {
@@ -32,7 +47,7 @@ function App() {
           .select({ view: "Grid view" })
           .eachPage((records, fetchNextPage) => {
             setPeople(records);
-            console.log("People", records);
+            // console.log("People", records);
             fetchNextPage();
           });
       } catch (e) {
@@ -44,7 +59,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App dark:bg-dim">
       <Switch>
         <Route
           path="/projects"
@@ -53,6 +68,9 @@ function App() {
               history={props.history}
               projects={projects}
               people={people}
+              userTheme={userTheme}
+              systemTheme={systemTheme}
+              onThemeSwitch={themeSwitch}
               {...props}
             />
           )}
@@ -63,8 +81,9 @@ function App() {
           render={(props) => (
             <Home
               history={props.history}
-              projects={projects}
-              people={people}
+              userTheme={userTheme}
+              systemTheme={systemTheme}
+              onThemeSwitch={themeSwitch}
               {...props}
             />
           )}

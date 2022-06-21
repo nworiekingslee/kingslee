@@ -2,7 +2,6 @@ import React from "react";
 import People from "./People";
 
 const PeopleContainer = ({ people }) => {
-  console.log("a person", people);
   return (
     <>
       <p className="font-bold text-sm mb-2 mt-10">FRIENDS & PARTNERS</p>
