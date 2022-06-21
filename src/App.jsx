@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "./routes/home";
 import Projects from "./routes/Projects";
 import "./App.css";
 import Airtable from "airtable";
@@ -43,8 +45,31 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Home /> */}
-      <Projects projects={projects} people={people} />
+      <Switch>
+        <Route
+          path="/projects"
+          render={(props) => (
+            <Projects
+              history={props.history}
+              projects={projects}
+              people={people}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <Home
+              history={props.history}
+              projects={projects}
+              people={people}
+              {...props}
+            />
+          )}
+        />
+      </Switch>
     </div>
   );
 }
