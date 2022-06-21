@@ -11,7 +11,7 @@ const HomeBoi = ({ userTheme }) => {
         alt="Nworie Kingslee"
       />
       <div className="max-w-[650px] mx-auto text-center px-6 ">
-        <p className="text-4xl text-dark font-semibold dark:text-white">
+        <p className="text-4xl text-dark font-semibold dark:text-imagination">
           Hello, I am Nworie Kingsley
         </p>
         <p className="mt-2 font-normal mb-6 dark:text-dim-body">

@@ -16,7 +16,7 @@ function App() {
   const [people, setPeople] = useState([]);
   const [userTheme, setUserTheme] = useState([]);
 
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  // const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const themeSwitch = () => {
     console.log("tap");
@@ -61,7 +61,7 @@ function App() {
 
   return (
     <div className="App dark:bg-dim">
-      <div className="md:hidden h-12 w-4 fixed bottom-28 left-0 bg-slate-100"></div>
+      <div className="md:hidden h-12 w-4 fixed bottom-28 left-0 bg-slate-100 dark:bg-dim-secondary"></div>
 
       <div
         onClick={() => themeSwitch()}

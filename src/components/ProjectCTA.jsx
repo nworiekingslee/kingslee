@@ -6,7 +6,14 @@ import reportIcon from "../images/icons/event report.svg";
 import read from "../images/icons/Read.svg";
 import recording from "../images/icons/Recording.svg";
 
-const ProjectCTA = ({ cta, link }) => {
+import codeDark from "../images/icons/dark/Code_CTA.svg";
+import liveDark from "../images/icons/dark/Live.svg";
+import caseStudyDark from "../images/icons/dark/Case Study.svg";
+import reportIconDark from "../images/icons/dark/event report.svg";
+import readDark from "../images/icons/dark/Read.svg";
+import recordingDark from "../images/icons/dark/Recording.svg";
+
+const ProjectCTA = ({ cta, link, userTheme }) => {
   return (
     <>
       {cta === "Live" ? (
@@ -16,7 +23,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm flex mr-4 align-middle cursor-pointer "
         >
-          <img src={live} alt="" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={liveDark} alt="" className="mr-1" />
+          ) : (
+            <img src={live} alt="" className="mr-1" />
+          )}{" "}
+          {cta}
         </a>
       ) : (
         ""
@@ -28,7 +40,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm flex mr-4 align-middle cursor-pointer"
         >
-          <img src={code} alt="" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={codeDark} alt="" className="mr-1" />
+          ) : (
+            <img src={code} alt="" className="mr-1" />
+          )}
+          {cta}
         </a>
       ) : (
         ""
@@ -40,7 +57,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm flex mr-4 align-middle cursor-pointer w-[120px]"
         >
-          <img src={caseStudy} alt="" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={caseStudyDark} alt="" className="mr-1" />
+          ) : (
+            <img src={caseStudy} alt="" className="mr-1" />
+          )}
+          {cta}
         </a>
       ) : (
         ""
@@ -54,7 +76,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm align-middle cursor-pointer flex mr-4 w-[120px]"
         >
-          <img src={reportIcon} alt="Event website" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={reportIconDark} alt="" className="mr-1" />
+          ) : (
+            <img src={reportIcon} alt="" className="mr-1" />
+          )}
+          {cta}
         </a>
       ) : (
         ""
@@ -66,7 +93,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm flex mr-4 align-middle cursor-pointer"
         >
-          <img src={reportIcon} alt="" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={reportIconDark} alt="" className="mr-1" />
+          ) : (
+            <img src={reportIcon} alt="" className="mr-1" />
+          )}
+          {cta}
         </a>
       ) : (
         ""
@@ -78,7 +110,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm flex mr-4 align-middle cursor-pointer"
         >
-          <img src={recording} alt="" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={recordingDark} alt="" className="mr-1" />
+          ) : (
+            <img src={recording} alt="" className="mr-1" />
+          )}
+          {cta}
         </a>
       ) : (
         ""
@@ -90,7 +127,12 @@ const ProjectCTA = ({ cta, link }) => {
           rel="noreferrer"
           className="text-sm flex mr-4 align-middle cursor-pointer"
         >
-          <img src={read} alt="" className="mr-1" /> {cta}
+          {userTheme === "dark" ? (
+            <img src={readDark} alt="" className="mr-1" />
+          ) : (
+            <img src={read} alt="" className="mr-1" />
+          )}
+          {cta}
         </a>
       ) : (
         ""

@@ -1,7 +1,7 @@
 import React from "react";
 import Activities from "./Activities";
 
-const ActivitiesContainer = ({ projects, header }) => {
+const ActivitiesContainer = ({ projects, header, userTheme }) => {
   const rightProject = [];
   const leftProject = [];
 
@@ -15,16 +15,26 @@ const ActivitiesContainer = ({ projects, header }) => {
 
   return (
     <>
-      <p className="font-bold text-sm mb-2 mt-10">{header}</p>
+      <p className="font-bold text-sm mb-2 mt-10 dark:text-dim-body">
+        {header}
+      </p>
       <div className="lg:flex lg:w-[650px]">
         <div className="w-full lg:w-1/2 mr-2">
           {leftProject.map((project) => (
-            <Activities project={project} key={project.fields.Number} />
+            <Activities
+              project={project}
+              userTheme={userTheme}
+              key={project.fields.Number}
+            />
           ))}
         </div>
         <div className="w-full lg:w-1/2 lg:mt-6">
           {rightProject.map((project) => (
-            <Activities project={project} key={project.fields.Number} />
+            <Activities
+              project={project}
+              userTheme={userTheme}
+              key={project.fields.Number}
+            />
           ))}
         </div>
       </div>

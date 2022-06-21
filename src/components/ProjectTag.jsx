@@ -4,7 +4,7 @@ import code from "../images/icons/code.svg";
 import article from "../images/icons/article.svg";
 import event from "../images/icons/event.svg";
 
-const ProjecctTag = ({ type }) => {
+const ProjectTag = ({ type }) => {
   return (
     <>
       {type === "Design" ? (
@@ -39,4 +39,4 @@ const ProjecctTag = ({ type }) => {
   );
 };
 
-export default ProjecctTag;
+export default ProjectTag;
