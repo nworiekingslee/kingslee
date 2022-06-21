@@ -20,7 +20,7 @@ const Projects = ({ projects, people }) => {
         <div className=" hidden lg:block w-[420px] fixed top-14">
           {/* top block, left flang */}
           <div className="px-2">
-            <p className="text-5xl text-dark font-semibold">
+            <p className="text-[42px] text-dark font-semibold w-80">
               Hello, I am Nworie Kingsley
             </p>
             <p className="mt-4 font-normal mb-6">
