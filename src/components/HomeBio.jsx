@@ -1,44 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import Button from "../components/Button.jsx";
 import profile from "../images/kingslee.jpg";
 import { gsap } from "gsap";
 
 const HomeBoi = ({ userTheme }) => {
-  const block = useRef();
-  const q = gsap.utils.selector(block);
-  const t1 = useRef();
-
-  useEffect(() => {
-    // gsap.to(q("img"), { rotation: "+360" });
-
-    t1.current = gsap
-      .timeline({ delay: 0.5, ease: "power2.out" })
-      .from(".item", {
-        y: 80,
-        stagger: 0.1,
-        opacity: 0,
-      })
-      .to(q(".darker"), {
-        // color: "#24292F",
-        color: "#000",
-        // opacity: 1,
-        repeat: 2,
-        yoyo: true,
-        label: "p",
-      })
-      .to(q(".highlight"), {
-        color: "#fff",
-        repeat: 2,
-        yoyo: true,
-        label: "p",
-        duration: 0.5,
-      });
-  });
   return (
-    <div
-      ref={block}
-      className=" w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim"
-    >
+    <div className=" w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim">
       <img
         className="item w-[200px] mx-auto rounded-full mb-8"
         src={profile}
@@ -71,7 +38,7 @@ const HomeBoi = ({ userTheme }) => {
         )}
       </div>
 
-      <div className=" item mx-auto">
+      <div className="item mx-auto mt-6">
         <Button userTheme={userTheme} cta="See my adventures" />
       </div>
 

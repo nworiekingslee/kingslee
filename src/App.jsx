@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Home from "./routes/home";
 import Projects from "./routes/Projects";
 import moon from "./images/icons/moon.svg";
@@ -18,10 +18,13 @@ function App() {
   const [people, setPeople] = useState([]);
   const [userTheme, setUserTheme] = useState([]);
 
-  let iconItem = useRef(null);
+  const app = useRef();
+  const q = gsap.utils.selector(app);
+  const t1 = useRef();
+
+  // let iconItem = useRef(null);
 
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  console.log(systemTheme);
 
   const themeSwitch = () => {
     console.log("tap");
@@ -62,21 +65,47 @@ function App() {
     }
 
     fetchData();
+  }, []);
 
+  useState(() => {
     if (systemTheme) {
       document.documentElement.classList.add("dark");
       setUserTheme("dark");
     }
-
-    gsap.to(iconItem.current, {
-      duration: 1,
-      backgroundColor: "#f0f",
-      ease: "none",
-    });
   }, [systemTheme]);
 
+  useEffect(() => {
+    t1.current = gsap
+      .timeline({ delay: 1, ease: "power2.out" })
+      .fromTo(
+        q(".item"),
+        { y: 40, opacity: 0 },
+        {
+          y: -40,
+          opacity: 1,
+          stagger: 0.1,
+        }
+      )
+      .to(q(".darker"), {
+        // color: "#24292F",
+        color: "#000",
+        repeat: 2,
+        yoyo: true,
+        label: "p",
+      })
+      .to(q(".highlight"), {
+        color: "#fff",
+        repeat: 2,
+        yoyo: true,
+        label: "p",
+        duration: 0.5,
+      });
+
+    console.log("animate");
+  }, [userTheme]);
+
   return (
-    <div className="App dark:bg-dim h-full">
+    <div ref={app} className="App dark:bg-dim h-full">
       <div className="md:hidden h-12 w-6 fixed bottom-28 left-0 bg-slate-100 dark:bg-dim-secondary"></div>
 
       <div
