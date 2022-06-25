@@ -2,6 +2,13 @@ import React from "react";
 import PinnedContainer from "../components/PinnedContainer";
 import ActivitiesContainer from "../components/ActivitiesContainer";
 import PeopleContainer from "../components/PeopleContainer";
+import profile from "../images/kingslee.jpg";
+import github from "../images/icons/Github.svg";
+import twitter from "../images/icons/Twitter.svg";
+import email from "../images/icons/Email.svg";
+import githubDark from "../images/icons/dark/Github.svg";
+import twitterDark from "../images/icons/dark/Twitter.svg";
+import emailDark from "../images/icons/dark/Email.svg";
 
 const Projects = ({ projects, people, userTheme }) => {
   const pinned = projects.filter((project) => project.fields.Pinned);
@@ -16,11 +23,11 @@ const Projects = ({ projects, people, userTheme }) => {
 
   return (
     <>
-      <div className="container max-w-xl md:max-w-[1280px] mx-auto h-full text-dark-secondary flex justify-between md:justify-between p-4 ">
+      <div className="container max-w-xl md:max-w-[1280px] mx-auto h-full text-dark-secondary flex justify-between md:justify-between p-4">
         <div className="hidden lg:block min-w-[420px] mr-4">
-          <div className=" hidden lg:block w-[420px] fixed top-16">
+          <div className=" hidden lg:flex lg:flex-col lg:justify-around w-[420px] fixed top-0 px-2 h-screen  ">
             {/* top block, left flang */}
-            <div className="px-2">
+            <div className="">
               <p className="text-[42px] text-dark dark:text-imagination font-semibold w-80 leading-tight">
                 Hello, I am Nworie Kingsley
               </p>
@@ -31,13 +38,100 @@ const Projects = ({ projects, people, userTheme }) => {
               </p>
             </div>
             {/* top block, middle flang */}
-            <div></div>
+            <div className="text-dark-secondary dark:text-dim-body h-40 mb-32 flex flex-col justify-between tracking-widest">
+              <a
+                href="#activities"
+                className="flex items-center text-[12px] text-dark dark:text-white font-bold"
+              >
+                00{" "}
+                <div className="w-12 h-[1px] bg-dark dark:bg-white mx-4"></div>{" "}
+                PROJECTS
+              </a>
+              <a href="#activities" className="flex items-center text-[12px]">
+                01 <div className="w-4 h-[1px] bg-dim-body mx-4"></div> EVENTS
+              </a>
+              <a href="#activities" className="flex items-center text-[12px]">
+                02 <div className="w-4 h-[1px] bg-dim-body mx-4"></div> ARTICLES
+              </a>
+              <a href="#activities" className="flex items-center text-[12px]">
+                03 <div className="w-4 h-[1px] bg-dim-body mx-4"></div> PEOPLE
+              </a>
+            </div>
+
+            {/* top block, bottom flang */}
+            <div className="flex items-center">
+              <img className="h-10 w-10 rounded-full" src={profile} alt="" />
+              <a
+                href="https://github.com/nworiekingslee"
+                target="_blank"
+                rel="noreferrer"
+                className="flex ml-4 "
+              >
+                {userTheme === "dark" ? (
+                  <img
+                    className="h-6 w-6"
+                    src={githubDark}
+                    alt="Kingslee GitHub"
+                  />
+                ) : (
+                  <img className="h-6 w-6" src={github} alt="Kingslee GitHub" />
+                )}{" "}
+                <span className="ml-1 text-dark-secondary dark:text-imagination">
+                  GitHub
+                </span>
+              </a>
+
+              <a
+                href="https://twitter.com/nworiekingslee"
+                target="_blank"
+                rel="noreferrer"
+                className="flex ml-4 "
+              >
+                {userTheme === "dark" ? (
+                  <img
+                    className="h-6 w-6"
+                    src={twitterDark}
+                    alt="Kingslee twitter"
+                  />
+                ) : (
+                  <img
+                    className="h-6 w-6"
+                    src={twitter}
+                    alt="Kingslee twitter"
+                  />
+                )}{" "}
+                <span className="ml-1 text-dark-secondary dark:text-imagination">
+                  Twitter
+                </span>
+              </a>
+
+              <a
+                href="mailto:obizzkingsley@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex ml-4 "
+              >
+                {userTheme === "dark" ? (
+                  <img
+                    className="h-6 w-6"
+                    src={emailDark}
+                    alt="Kingslee email"
+                  />
+                ) : (
+                  <img className="h-6 w-6" src={email} alt="Kingslee email" />
+                )}{" "}
+                <span className="ml-1 text-dark-secondary  dark:text-imagination">
+                  Email
+                </span>
+              </a>
+            </div>
           </div>
         </div>
         {/* right flang */}
         <div className=" w-full lg:w-auto mt-14">
           <PinnedContainer projects={pinned} userTheme={userTheme} />
           <ActivitiesContainer
+            id="activities"
             projects={activities}
             userTheme={userTheme}
             header="MY ACTIVITIES"

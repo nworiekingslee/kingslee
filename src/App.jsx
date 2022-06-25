@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Home from "./routes/home";
 import Projects from "./routes/Projects";
 import moon from "./images/icons/moon.svg";
@@ -6,6 +6,8 @@ import sun from "./images/icons/dark/sun.svg";
 import { Route, Switch } from "react-router-dom";
 import Airtable from "airtable";
 import "./App.css";
+
+import { gsap } from "gsap";
 
 const base = new Airtable({
   apiKey: process.env.REACT_APP_AIRTABLE_API_KEY,
@@ -16,7 +18,10 @@ function App() {
   const [people, setPeople] = useState([]);
   const [userTheme, setUserTheme] = useState([]);
 
-  // const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  let iconItem = useRef(null);
+
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  console.log(systemTheme);
 
   const themeSwitch = () => {
     console.log("tap");
@@ -57,11 +62,22 @@ function App() {
     }
 
     fetchData();
-  }, []);
+
+    if (systemTheme) {
+      document.documentElement.classList.add("dark");
+      setUserTheme("dark");
+    }
+
+    gsap.to(iconItem.current, {
+      duration: 1,
+      backgroundColor: "#f0f",
+      ease: "none",
+    });
+  }, [systemTheme]);
 
   return (
-    <div className="App dark:bg-dim">
-      <div className="md:hidden h-12 w-4 fixed bottom-28 left-0 bg-slate-100 dark:bg-dim-secondary"></div>
+    <div className="App dark:bg-dim h-full">
+      <div className="md:hidden h-12 w-6 fixed bottom-28 left-0 bg-slate-100 dark:bg-dim-secondary"></div>
 
       <div
         onClick={() => themeSwitch()}

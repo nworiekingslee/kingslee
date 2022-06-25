@@ -14,11 +14,11 @@ const ActivitiesContainer = ({ projects, header, userTheme }) => {
   }
 
   return (
-    <>
+    <div className="smooth-content">
       <p className="font-bold text-sm mb-2 mt-10 dark:text-dim-body">
         {header}
       </p>
-      <div className="lg:flex lg:w-[650px]">
+      <div className="lg:flex lg:w-[650px]" data-speed="1">
         <div className="w-full lg:w-1/2 mr-2">
           {leftProject.map((project) => (
             <Activities
@@ -28,7 +28,7 @@ const ActivitiesContainer = ({ projects, header, userTheme }) => {
             />
           ))}
         </div>
-        <div className="w-full lg:w-1/2 lg:mt-6">
+        <div className="w-full lg:w-1/2 lg:mt-6" data-speed="2">
           {rightProject.map((project) => (
             <Activities
               project={project}
@@ -38,7 +38,7 @@ const ActivitiesContainer = ({ projects, header, userTheme }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
