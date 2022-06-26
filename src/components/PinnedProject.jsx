@@ -1,23 +1,23 @@
 import React from "react";
 import ProjectCTA from "./ProjectCTA";
-import ProjectTag from "./ProjectTag";
-import DarkProjectTag from "./darkProjectTag";
 
-const PinnedProject = ({ project, userTheme }) => {
+const PinnedProject = ({ project, userTheme, onEnter, onLeave }) => {
   const { Type, CTA1, CTA2, Link1, Link2, Label, Description, Title } =
     project.fields;
 
   return (
-    <div className=" w-full bg-imagination dark:bg-dim-secondary dark:text-dim-body p-8 mb-2">
-      <div className="md:flex ">
-        {userTheme === "dark" ? (
-          <DarkProjectTag type={Type} />
-        ) : (
-          <ProjectTag type={Type} />
-        )}
+    <div
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      className="h w-full bg-imagination dark:bg-dim-secondary dark:text-dim-body p-8 mb-2"
+    >
+      <div className="md:flex md:items-center">
+        <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8 md:hidden">
+          {Type}
+        </p>
 
-        <div className="md:ml-4">
-          <p className="text-[28px] font-bold text-dark dark:text-imagination">
+        <div className="">
+          <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
             {Title}
           </p>
           <p className="text-sm">{Label}</p>

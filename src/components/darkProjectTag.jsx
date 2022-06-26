@@ -8,22 +8,30 @@ const DarkProjectTag = ({ type }) => {
   return (
     <>
       {type === "Design" ? (
-        <img className="mb-4 md:mb-0" src={design} alt="design" />
+        <div className="p-3 outline outline-1 outline-dim-body  rounded-full h-12 w-12 mb-4 md:mb-0">
+          <img className="mb-4 md:mb-0" src={design} alt="design" />
+        </div>
       ) : (
         ""
       )}
       {type === "Code" ? (
-        <img className="mb-4 md:mb-0" src={code} alt="code" />
+        <div className="p-3 outline outline-1 outline-dim-body  rounded-full h-12 w-12 mb-4 md:mb-0">
+          <img className="mb-4 md:mb-0" src={code} alt="code" />
+        </div>
       ) : (
         ""
       )}
       {type === "Article" ? (
-        <img className="mb-4 md:mb-0" src={article} alt="article" />
+        <div className="p-3 outline outline-1 outline-dim-body  rounded-full h-12 w-12 mb-4 md:mb-0">
+          <img className="mb-4 md:mb-0" src={article} alt="article" />
+        </div>
       ) : (
         ""
       )}
       {type === "Event" ? (
-        <img className="mb-4 md:mb-0" src={event} alt="event" />
+        <div className="p-3 outline outline-1 outline-dim-body  rounded-full h-12 w-12 mb-4 md:mb-0">
+          <img className="mb-4 md:mb-0" src={event} alt="event" />
+        </div>
       ) : (
         ""
       )}

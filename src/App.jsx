@@ -15,7 +15,7 @@ const base = new Airtable({
 
 function App() {
   const [projects, setProjects] = useState([]);
-  const [people, setPeople] = useState([]);
+  const [talks, setTalks] = useState([]);
   const [userTheme, setUserTheme] = useState([]);
 
   const app = useRef();
@@ -27,7 +27,7 @@ function App() {
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const themeSwitch = () => {
-    console.log("tap");
+    gsap.from(q(".theme"), { rotation: "+=360", ease: "elastic" });
     if (document.documentElement.classList.contains("dark")) {
       document.documentElement.classList.remove("dark");
       setUserTheme("light");
@@ -35,6 +35,21 @@ function App() {
     }
     document.documentElement.classList.add("dark");
     setUserTheme("dark");
+  };
+
+  const onEnter = ({ currentTarget }) => {
+    gsap.to(currentTarget, {
+      scale: 1.12,
+      opacity: 1,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+    console.log("mouse ti wole");
+  };
+
+  const onLeave = ({ currentTarget }) => {
+    gsap.to(currentTarget, { scale: 1, ease: "power3.out" });
+    console.log("mouse ti wole");
   };
 
   useEffect(() => {
@@ -52,11 +67,11 @@ function App() {
       }
 
       try {
-        base("People")
+        base("Talks")
           .select({ view: "Grid view" })
           .eachPage((records, fetchNextPage) => {
-            setPeople(records);
-            // console.log("People", records);
+            setTalks(records);
+            console.log("Talks", records);
             fetchNextPage();
           });
       } catch (e) {
@@ -76,7 +91,7 @@ function App() {
 
   useEffect(() => {
     t1.current = gsap
-      .timeline({ delay: 1, ease: "power2.out" })
+      .timeline({ ease: "power3.out" })
       .fromTo(
         q(".item"),
         { y: 40, opacity: 0 },
@@ -86,31 +101,56 @@ function App() {
           stagger: 0.1,
         }
       )
-      .to(q(".darker"), {
-        // color: "#24292F",
-        color: "#000",
-        repeat: 2,
-        yoyo: true,
-        label: "p",
-      })
-      .to(q(".highlight"), {
-        color: "#fff",
-        repeat: 2,
-        yoyo: true,
-        label: "p",
-        duration: 0.5,
-      });
+      .fromTo(
+        q(".project-half"),
+        { y: 40, opacity: 0 },
+        {
+          y: -40,
+          opacity: 1,
+          stagger: 0.1,
+        }
+      )
+      .fromTo(
+        q(".darker"),
+        { color: "#57606A" },
+        {
+          // color: "#24292F",
+          delay: 1.2,
+          color: "#000",
+          repeat: 2,
+          yoyo: true,
+          label: "p",
+          ease: "rough",
+        }
+      )
+      .fromTo(
+        q(".highlight"),
+        { color: "#777778" },
+        {
+          delay: 1.2,
+          color: "#fff",
+          repeat: 2,
+          yoyo: true,
+          label: "p",
+          duration: 0.5,
+          ease: "rough",
+        }
+      );
 
     console.log("animate");
   }, [userTheme]);
 
+  // useEffect(() => {
+
+  // }, [userTheme]);
+
   return (
-    <div ref={app} className="App dark:bg-dim h-full">
+    <div ref={app} className="App dark:bg-dim min-h-screen">
       <div className="md:hidden h-12 w-6 fixed bottom-28 left-0 bg-slate-100 dark:bg-dim-secondary"></div>
 
       <div
         onClick={() => themeSwitch()}
-        className="p-3 rounded-full fixed bottom-28 md:bottom-6 left-0 md:left-6 bg-slate-100 dark:bg-dim-secondary cursor-pointer"
+        className="theme z-50 p-3 rounded-full fixed bottom-28 md:bottom-6 left-0 md:left-6 bg-slate-100 dark:bg-dim-secondary cursor-pointer"
       >
         {userTheme === "dark" ? (
           <img src={sun} alt="lightmode" />
@@ -125,8 +165,10 @@ function App() {
             <Projects
               history={props.history}
               projects={projects}
-              people={people}
+              talks={talks}
               userTheme={userTheme}
+              onEnter={onEnter}
+              onLeave={onLeave}
               {...props}
             />
           )}

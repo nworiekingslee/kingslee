@@ -17,7 +17,7 @@ const HomeBoi = ({ userTheme }) => {
         </p>
 
         {userTheme === "dark" ? (
-          <p className="item mt-3 font-normal mb text-dim-body">
+          <p className="item mt-3 font-normal mb-6 text-dim-body">
             I am a <span className="highlight ">Software developer</span> with
             equal love for <span className="highlight">art & design</span>. I
             like to describe myself as an{" "}
@@ -38,12 +38,9 @@ const HomeBoi = ({ userTheme }) => {
         )}
       </div>
 
-      <div className="item mx-auto mt-6">
+      <div className="item mx-auto">
         <Button userTheme={userTheme} cta="See my adventures" />
       </div>
-
-      {/* Some extra padding */}
-      <div className="h-[50px] md-[100px]"></div>
     </div>
   );
 };

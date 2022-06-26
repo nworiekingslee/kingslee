@@ -1,7 +1,7 @@
 import React from "react";
 import PinnedContainer from "../components/PinnedContainer";
 import ActivitiesContainer from "../components/ActivitiesContainer";
-import PeopleContainer from "../components/PeopleContainer";
+import Talk from "../components/Talk";
 import profile from "../images/kingslee.jpg";
 import github from "../images/icons/Github.svg";
 import twitter from "../images/icons/Twitter.svg";
@@ -9,8 +9,9 @@ import email from "../images/icons/Email.svg";
 import githubDark from "../images/icons/dark/Github.svg";
 import twitterDark from "../images/icons/dark/Twitter.svg";
 import emailDark from "../images/icons/dark/Email.svg";
+import TalkContainer from "../components/TalkContainer";
 
-const Projects = ({ projects, people, userTheme }) => {
+const Projects = ({ projects, talks, userTheme, onEnter, onLeave }) => {
   const pinned = projects.filter((project) => project.fields.Pinned);
   const activities = projects.filter(
     (project) =>
@@ -23,7 +24,7 @@ const Projects = ({ projects, people, userTheme }) => {
 
   return (
     <>
-      <div className="container max-w-xl md:max-w-[1280px] mx-auto h-full text-dark-secondary flex justify-between md:justify-between p-4">
+      <div className="container max-w-xl md:max-w-[1280px] mx-auto h-full text-dark-secondary flex justify-between md:justify-between p-4 scroll-smooth">
         <div className="hidden lg:block min-w-[420px] mr-4">
           <div className=" hidden lg:flex lg:flex-col lg:justify-around w-[420px] fixed top-0 px-2 h-screen  ">
             {/* top block, left flang */}
@@ -38,7 +39,7 @@ const Projects = ({ projects, people, userTheme }) => {
               </p>
             </div>
             {/* top block, middle flang */}
-            <div className="text-dark-secondary dark:text-dim-body h-40 mb-32 flex flex-col justify-between tracking-widest">
+            <div className="text-dark-secondary dark:text-dim-body h-32  mb-32 flex flex-col justify-between tracking-widest">
               <a
                 href="#activities"
                 className="flex items-center text-[12px] text-dark dark:text-white font-bold"
@@ -52,9 +53,6 @@ const Projects = ({ projects, people, userTheme }) => {
               </a>
               <a href="#activities" className="flex items-center text-[12px]">
                 02 <div className="w-4 h-[1px] bg-dim-body mx-4"></div> ARTICLES
-              </a>
-              <a href="#activities" className="flex items-center text-[12px]">
-                03 <div className="w-4 h-[1px] bg-dim-body mx-4"></div> PEOPLE
               </a>
             </div>
 
@@ -128,25 +126,36 @@ const Projects = ({ projects, people, userTheme }) => {
           </div>
         </div>
         {/* right flang */}
-        <div className=" w-full lg:w-auto mt-14">
-          <PinnedContainer projects={pinned} userTheme={userTheme} />
+        <div className=" w-full lg:w-auto mt-14 project-half">
+          <PinnedContainer
+            projects={pinned}
+            userTheme={userTheme}
+            onEnter={onEnter}
+            onLeave={onLeave}
+          />
           <ActivitiesContainer
             id="activities"
             projects={activities}
             userTheme={userTheme}
             header="MY ACTIVITIES"
           />
-          <ActivitiesContainer
-            projects={events}
+
+          <TalkContainer
+            talks={talks}
+            userTheme={userTheme}
+            header="TALKS & EVENTS"
+          />
+          {/* <eventContainer
+            events={events}
             userTheme={userTheme}
             header="EVENTS & TALKS"
-          />
+          /> */}
           <ActivitiesContainer
             projects={articles}
             userTheme={userTheme}
             header="ARTICLES"
           />
-          <PeopleContainer people={people} userTheme={userTheme} />
+          {/* <PeopleContainer people={people} userTheme={userTheme} /> */}
           <p className="text-slate-500 dark:text-dim-body text-sm mx-auto hidden md:block">
             design inspired by{" "}
             <a href="https://kadet.dev/" target="_blank" rel="noreferrer">

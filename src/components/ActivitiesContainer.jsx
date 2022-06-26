@@ -14,7 +14,7 @@ const ActivitiesContainer = ({ projects, header, userTheme }) => {
   }
 
   return (
-    <div className="smooth-content">
+    <div className="">
       <p className="font-bold text-sm mb-2 mt-10 dark:text-dim-body">
         {header}
       </p>

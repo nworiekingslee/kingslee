@@ -1,7 +1,5 @@
 import React from "react";
 import ProjectCTA from "./ProjectCTA";
-import ProjectTag from "./ProjectTag";
-import DarkProjectTag from "./darkProjectTag";
 
 const Activities = ({ project, userTheme }) => {
   const { Type, CTA1, CTA2, Link1, Link2, Label, Description, Title } =
@@ -10,14 +8,12 @@ const Activities = ({ project, userTheme }) => {
   return (
     <div className="w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body">
       <div className="">
-        {userTheme === "dark" ? (
-          <DarkProjectTag type={Type} />
-        ) : (
-          <ProjectTag type={Type} />
-        )}
+        <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
+          {Type}
+        </p>
 
-        <div className="mt-2">
-          <p className="text-[28px] font-bold text-dark dark:text-imagination">
+        <div className="mt-4">
+          <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
             {Title}
           </p>
           <p className="text-sm mt-[2px]">{Label}</p>
