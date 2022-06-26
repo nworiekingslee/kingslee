@@ -9,7 +9,7 @@ const PinnedProject = ({ project, userTheme, onEnter, onLeave }) => {
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className="h w-full bg-imagination dark:bg-dim-secondary dark:text-dim-body p-8 mb-2"
+      className="p w-full bg-imagination dark:bg-dim-secondary dark:text-dim-body p-8 mb-2"
     >
       <div className="md:flex md:items-center">
         <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8 md:hidden">

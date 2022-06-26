@@ -1,7 +1,13 @@
 import React from "react";
 import Talk from "./Talk";
 
-const TalkContainer = ({ talks, header, userTheme }) => {
+const TalkContainer = ({
+  talks,
+  header,
+  userTheme,
+  onTalkEnter,
+  onTalkLeave,
+}) => {
   const rightTalk = [];
   const leftTalk = [];
 
@@ -21,12 +27,24 @@ const TalkContainer = ({ talks, header, userTheme }) => {
       <div className="lg:flex lg:w-[650px]">
         <div className="w-full lg:w-1/2 mr-2">
           {leftTalk.map((talk) => (
-            <Talk talk={talk} userTheme={userTheme} key={talk.fields.Number} />
+            <Talk
+              talk={talk}
+              userTheme={userTheme}
+              key={talk.fields.Number}
+              onTalkEnter={onTalkEnter}
+              onTalkLeave={onTalkLeave}
+            />
           ))}
         </div>
         <div className="w-full lg:w-1/2 lg:mt-6">
           {rightTalk.map((talk) => (
-            <Talk talk={talk} userTheme={userTheme} key={talk.fields.Number} />
+            <Talk
+              talk={talk}
+              userTheme={userTheme}
+              key={talk.fields.Number}
+              onTalkEnter={onTalkEnter}
+              onTalkLeave={onTalkLeave}
+            />
           ))}
         </div>
       </div>

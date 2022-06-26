@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectCTA from "./ProjectCTA";
 
-const Talk = ({ talk, userTheme }) => {
+const Talk = ({ talk, userTheme, onTalkEnter, onTalkLeave }) => {
   const {
     EventName,
     EventType,
@@ -15,7 +15,11 @@ const Talk = ({ talk, userTheme }) => {
   } = talk.fields;
 
   return (
-    <div className="w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body min-h-[320px] relative">
+    <div
+      onMouseEnter={onTalkEnter}
+      onMouseLeave={onTalkLeave}
+      className="t w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body min-h-[320px] relative"
+    >
       <div>
         <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm">
           {EventName}

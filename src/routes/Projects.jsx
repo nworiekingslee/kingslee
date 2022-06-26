@@ -11,7 +11,17 @@ import twitterDark from "../images/icons/dark/Twitter.svg";
 import emailDark from "../images/icons/dark/Email.svg";
 import TalkContainer from "../components/TalkContainer";
 
-const Projects = ({ projects, talks, userTheme, onEnter, onLeave }) => {
+const Projects = ({
+  projects,
+  talks,
+  userTheme,
+  onPinnedEnter,
+  onPinnedLeave,
+  onActivityEnter,
+  onActivityLeave,
+  onTalkEnter,
+  onTalkLeave,
+}) => {
   const pinned = projects.filter((project) => project.fields.Pinned);
   const activities = projects.filter(
     (project) =>
@@ -130,30 +140,32 @@ const Projects = ({ projects, talks, userTheme, onEnter, onLeave }) => {
           <PinnedContainer
             projects={pinned}
             userTheme={userTheme}
-            onEnter={onEnter}
-            onLeave={onLeave}
+            onPinnedEnter={onPinnedEnter}
+            onPinnedLeave={onPinnedLeave}
           />
           <ActivitiesContainer
             id="activities"
             projects={activities}
             userTheme={userTheme}
             header="MY ACTIVITIES"
+            onActivityEnter={onActivityEnter}
+            onActivityLeave={onActivityLeave}
           />
 
           <TalkContainer
             talks={talks}
             userTheme={userTheme}
             header="TALKS & EVENTS"
+            onTalkEnter={onTalkEnter}
+            onTalkLeave={onTalkLeave}
           />
-          {/* <eventContainer
-            events={events}
-            userTheme={userTheme}
-            header="EVENTS & TALKS"
-          /> */}
+
           <ActivitiesContainer
             projects={articles}
             userTheme={userTheme}
             header="ARTICLES"
+            onActivityEnter={onActivityEnter}
+            onActivityLeave={onActivityLeave}
           />
           {/* <PeopleContainer people={people} userTheme={userTheme} /> */}
           <p className="text-slate-500 dark:text-dim-body text-sm mx-auto hidden md:block">

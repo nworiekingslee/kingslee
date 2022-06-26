@@ -1,12 +1,21 @@
 import React from "react";
 import ProjectCTA from "./ProjectCTA";
 
-const Activities = ({ project, userTheme }) => {
+const Activities = ({
+  project,
+  userTheme,
+  onActivityLeave,
+  onActivityEnter,
+}) => {
   const { Type, CTA1, CTA2, Link1, Link2, Label, Description, Title } =
     project.fields;
 
   return (
-    <div className="w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body">
+    <div
+      onMouseEnter={onActivityEnter}
+      onMouseLeave={onActivityLeave}
+      className="a w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body"
+    >
       <div className="">
         <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
           {Type}

@@ -37,19 +37,98 @@ function App() {
     setUserTheme("dark");
   };
 
-  const onEnter = ({ currentTarget }) => {
-    gsap.to(currentTarget, {
-      scale: 1.12,
-      opacity: 1,
-      duration: 0.3,
-      ease: "power3.out",
-    });
-    console.log("mouse ti wole");
+  const onPinnedEnter = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(q(".p"), {
+        opacity: 0.4,
+        duration: 0.1,
+      })
+      .to(currentTarget, {
+        scale: 1.12,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        zIndex: 10000,
+      });
   };
 
-  const onLeave = ({ currentTarget }) => {
-    gsap.to(currentTarget, { scale: 1, ease: "power3.out" });
-    console.log("mouse ti wole");
+  const onPinnedLeave = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(q(".p"), {
+        opacity: 1,
+        duration: 0.1,
+      })
+      .to(currentTarget, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+  };
+  const onActivityEnter = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(q(".a"), {
+        opacity: 0.4,
+        duration: 0.1,
+      })
+      .to(currentTarget, {
+        scale: 1.12,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        zIndex: 10000,
+      });
+  };
+
+  const onActivityLeave = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(q(".a"), {
+        opacity: 1,
+        duration: 0.1,
+      })
+      .to(currentTarget, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+  };
+  const onTalkEnter = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(q(".t"), {
+        opacity: 0.4,
+        duration: 0.1,
+      })
+      .to(currentTarget, {
+        scale: 1.12,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        zIndex: 10000,
+      });
+  };
+
+  const onTalkLeave = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(q(".t"), {
+        opacity: 1,
+        duration: 0.1,
+      })
+      .to(currentTarget, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power3.out",
+      });
   };
 
   useEffect(() => {
@@ -167,8 +246,12 @@ function App() {
               projects={projects}
               talks={talks}
               userTheme={userTheme}
-              onEnter={onEnter}
-              onLeave={onLeave}
+              onPinnedEnter={onPinnedEnter}
+              onPinnedLeave={onPinnedLeave}
+              onActivityEnter={onActivityEnter}
+              onActivityLeave={onActivityLeave}
+              onTalkEnter={onTalkEnter}
+              onTalkLeave={onTalkLeave}
               {...props}
             />
           )}

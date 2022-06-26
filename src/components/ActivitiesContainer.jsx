@@ -1,7 +1,13 @@
 import React from "react";
 import Activities from "./Activities";
 
-const ActivitiesContainer = ({ projects, header, userTheme }) => {
+const ActivitiesContainer = ({
+  projects,
+  header,
+  userTheme,
+  onActivityEnter,
+  onActivityLeave,
+}) => {
   const rightProject = [];
   const leftProject = [];
 
@@ -25,6 +31,8 @@ const ActivitiesContainer = ({ projects, header, userTheme }) => {
               project={project}
               userTheme={userTheme}
               key={project.fields.Number}
+              onActivityEnter={onActivityEnter}
+              onActivityLeave={onActivityLeave}
             />
           ))}
         </div>
@@ -34,6 +42,8 @@ const ActivitiesContainer = ({ projects, header, userTheme }) => {
               project={project}
               userTheme={userTheme}
               key={project.fields.Number}
+              onActivityEnter={onActivityEnter}
+              onActivityLeave={onActivityLeave}
             />
           ))}
         </div>
