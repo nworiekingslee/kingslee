@@ -64,7 +64,7 @@ const Projects = ({
               )}
             </div>
             {/* top block, middle flang */}
-            <Nav onEnter={onNavEnter} onLeave={onNavLeave} />
+            <Nav onEnter={onNavEnter} onLeave={onNavLeave} active="projects" />
 
             {/* top block, bottom flang */}
             <div className="flex items-center">
