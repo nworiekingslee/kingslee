@@ -37,11 +37,28 @@ const Events = ({
               <p className="text-[42px] text-dark dark:text-imagination font-semibold w-80 leading-tight">
                 Hello, I am Nworie Kingsley
               </p>
-              <p className="mt-4 font-normal mb-6 dark:text-dim-body">
-                I help intentional people and business build credibility through
-                brand recognition and interactive experiences using modern web
-                technology.
-              </p>
+              {userTheme === "dark" ? (
+                <p className="mt-4 font-normal mb-6 dark:text-dim-body">
+                  I am a <span className="highlight ">Software developer</span>{" "}
+                  with equal love for{" "}
+                  <span className="highlight">art & design</span>. I like to
+                  describe myself as an{" "}
+                  <span className="highlight">explorer</span>, eager to learn
+                  something new. I build interactive web experiences using
+                  modern web technology and{" "}
+                  <span className="highlight">enjoy sharing</span> what I know.
+                </p>
+              ) : (
+                <p className="mt-4 font-normal mb-6 dark:text-dim-body">
+                  I am a <span className="darker ">Software developer</span>{" "}
+                  with equal love for{" "}
+                  <span className="darker">art & design</span>. I like to
+                  describe myself as an <span className="darker">explorer</span>
+                  , eager to learn something new. I build interactive web
+                  experiences using modern web technology and{" "}
+                  <span className="darker">enjoy sharing</span> what I know.
+                </p>
+              )}
             </div>
             {/* top block, middle flang */}
             <Nav onEnter={onNavEnter} onLeave={onNavLeave} />
