@@ -8,23 +8,20 @@ import email from "../images/icons/Email.svg";
 import githubDark from "../images/icons/dark/Github.svg";
 import twitterDark from "../images/icons/dark/Twitter.svg";
 import emailDark from "../images/icons/dark/Email.svg";
+import TalkContainer from "../components/TalkContainer";
 import Nav from "../components/Nav";
 
-const Projects = ({
+const Events = ({
   projects,
+  talks,
   userTheme,
-  onPinnedEnter,
-  onPinnedLeave,
-  onActivityEnter,
-  onActivityLeave,
   onNavEnter,
   onNavLeave,
+  onActivityEnter,
+  onActivityLeave,
+  onTalkEnter,
+  onTalkLeave,
 }) => {
-  const pinned = projects.filter((project) => project.fields.Pinned);
-  const activities = projects.filter(
-    (project) =>
-      project.fields.Type === "Code" || project.fields.Type === "Design"
-  );
   const articles = projects.filter(
     (project) => project.fields.Type === "Article"
   );
@@ -120,21 +117,21 @@ const Projects = ({
         </div>
         {/* right flang */}
         <div className=" w-full lg:w-auto mt-14 project-half">
-          <PinnedContainer
-            projects={pinned}
+          <TalkContainer
+            talks={talks}
             userTheme={userTheme}
-            onPinnedEnter={onPinnedEnter}
-            onPinnedLeave={onPinnedLeave}
+            header="TALKS & EVENTS"
+            onTalkEnter={onTalkEnter}
+            onTalkLeave={onTalkLeave}
           />
+
           <ActivitiesContainer
-            id="activities"
-            projects={activities}
+            projects={articles}
             userTheme={userTheme}
-            header="MY ACTIVITIES"
+            header="ARTICLES"
             onActivityEnter={onActivityEnter}
             onActivityLeave={onActivityLeave}
           />
-
           {/* <PeopleContainer people={people} userTheme={userTheme} /> */}
           <p className="text-slate-500 dark:text-dim-body text-sm mx-auto md:block">
             design inspired by{" "}
@@ -148,4 +145,4 @@ const Projects = ({
   );
 };
 
-export default Projects;
+export default Events;

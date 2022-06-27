@@ -10,8 +10,7 @@ const Home = ({ userTheme }) => {
     <div className="container max-w-xl md:max-w-[1280px] mx-auto flex flex-col pb-8 h-screen text-dark-secondary ">
       <nav className="flex justify-between px-4 md:px-8 py-4 md:hidden ">
         <span className="font-extrabold text-xl text-dark dark:text-imagination">
-          Kingslee.{" "}
-          {userTheme === "dark" ? "with a dark vibes" : "yagami lighte"}
+          Kingslee.
         </span>{" "}
         <Link to="/projects">
           {userTheme === "dark" ? (

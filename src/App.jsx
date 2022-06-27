@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Home from "./routes/home";
 import Projects from "./routes/Projects";
+import Events from "./routes/Events";
 import moon from "./images/icons/moon.svg";
 import sun from "./images/icons/dark/sun.svg";
 import { Route, Switch } from "react-router-dom";
@@ -35,6 +36,24 @@ function App() {
     }
     document.documentElement.classList.add("dark");
     setUserTheme("dark");
+  };
+
+  const onNavEnter = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap
+      .timeline({ ease: "power3.out" })
+      .to(currentTarget, {
+        opacity: 1,
+      })
+      .to(currentTarget(".nav-line"), {
+        width: 40,
+      });
+  };
+  const onNavLeave = ({ currentTarget }) => {
+    const t2 = useRef;
+    t2.current = gsap.timeline({ ease: "power3.out" }).to(currentTarget, {
+      opacity: 0.5,
+    });
   };
 
   const onPinnedEnter = ({ currentTarget }) => {
@@ -112,7 +131,6 @@ function App() {
         opacity: 1,
         duration: 0.3,
         ease: "power3.out",
-        zIndex: 10000,
       });
   };
 
@@ -150,7 +168,6 @@ function App() {
           .select({ view: "Grid view" })
           .eachPage((records, fetchNextPage) => {
             setTalks(records);
-            console.log("Talks", records);
             fetchNextPage();
           });
       } catch (e) {
@@ -170,7 +187,7 @@ function App() {
 
   useEffect(() => {
     t1.current = gsap
-      .timeline({ ease: "power3.out" })
+      .timeline({ delay: 1, ease: "power3.out" })
       .fromTo(
         q(".item"),
         { y: 40, opacity: 0 },
@@ -215,8 +232,6 @@ function App() {
           ease: "rough",
         }
       );
-
-    console.log("animate");
   }, [userTheme]);
 
   // useEffect(() => {
@@ -244,14 +259,31 @@ function App() {
             <Projects
               history={props.history}
               projects={projects}
-              talks={talks}
               userTheme={userTheme}
               onPinnedEnter={onPinnedEnter}
               onPinnedLeave={onPinnedLeave}
               onActivityEnter={onActivityEnter}
               onActivityLeave={onActivityLeave}
+              onNavEnter={onNavEnter}
+              onNavLeave={onNavLeave}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          path="/events"
+          render={(props) => (
+            <Events
+              history={props.history}
+              projects={projects}
+              talks={talks}
+              userTheme={userTheme}
+              onActivityEnter={onActivityEnter}
+              onActivityLeave={onActivityLeave}
               onTalkEnter={onTalkEnter}
               onTalkLeave={onTalkLeave}
+              onNavEnter={onNavEnter}
+              onNavLeave={onNavLeave}
               {...props}
             />
           )}

@@ -20,9 +20,7 @@ const TalkContainer = ({
   }
   return (
     <div>
-      <p className="font-bold text-sm mb-2 mt-10 dark:text-dim-body">
-        {header}
-      </p>
+      <p className="font-bold text-sm mb-2 dark:text-dim-body">{header}</p>
 
       <div className="lg:flex lg:w-[650px]">
         <div className="w-full lg:w-1/2 mr-2">
