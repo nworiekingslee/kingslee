@@ -301,21 +301,27 @@ function App() {
   return (
     <div ref={app} className="App dark:bg-dim min-h-screen">
       <div className="fixed w-full z-50 bg-white dark:bg-dim">
-        <nav className="flex justify-between px-4 md:px-8 py-4 lg:hidden">
+        <nav className="flex justify-between items-center px-4 md:px-8 py-4 lg:hidden">
           <Link
             to="/"
-            className="font-extrabold text-xl text-dark dark:text-imagination"
+            className="font-extrabold text-xl ml-3 text-dark dark:text-imagination"
           >
             Kingslee.
           </Link>{" "}
-          <div className="show-mobile-nav" onClick={showMobileNav}>
+          <div
+            className="show-mobile-nav  p-3 cursor-pointer"
+            onClick={showMobileNav}
+          >
             {userTheme === "dark" ? (
               <img src={menuDark} alt="explore" />
             ) : (
               <img src={menu} alt="explore" />
             )}
           </div>
-          <div className="close-mobile-nav hidden" onClick={hideMobileNav}>
+          <div
+            className="close-mobile-nav hidden  p-3 cursor-pointer"
+            onClick={hideMobileNav}
+          >
             {userTheme === "dark" ? (
               <img src={closeDark} alt="explore" />
             ) : (
