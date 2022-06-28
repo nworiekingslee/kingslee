@@ -11,35 +11,62 @@ const Activities = ({
     project.fields;
 
   return (
-    <div
-      onMouseEnter={onActivityEnter}
-      onMouseLeave={onActivityLeave}
-      className="a w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body"
-    >
-      <div className="">
-        <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
-          {Type}
-        </p>
-
-        <div className="mt-4">
-          <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
-            {Title}
+    <>
+      <div
+        onMouseEnter={onActivityEnter}
+        onMouseLeave={onActivityLeave}
+        className="a w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body  hidden md:block"
+      >
+        <div className="">
+          <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
+            {Type}
           </p>
-          <p className="text-sm mt-[2px]">{Label}</p>
+
+          <div className="mt-4">
+            <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
+              {Title}
+            </p>
+            <p className="text-sm mt-[2px]">{Label}</p>
+          </div>
+        </div>
+
+        <p className="mt-4 mb-8 lg:mb-12">{Description}</p>
+
+        <div className="flex">
+          <ProjectCTA cta={CTA1} link={Link1} userTheme={userTheme} />
+          {CTA2 ? (
+            <ProjectCTA cta={CTA2} link={Link2} userTheme={userTheme} />
+          ) : (
+            ""
+          )}
         </div>
       </div>
+      <div className="a w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body md:hidden">
+        <div className="">
+          <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
+            {Type}
+          </p>
 
-      <p className="mt-4 mb-8 lg:mb-12">{Description}</p>
+          <div className="mt-4">
+            <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
+              {Title}
+            </p>
+            <p className="text-sm mt-[2px]">{Label}</p>
+          </div>
+        </div>
 
-      <div className="flex">
-        <ProjectCTA cta={CTA1} link={Link1} userTheme={userTheme} />
-        {CTA2 ? (
-          <ProjectCTA cta={CTA2} link={Link2} userTheme={userTheme} />
-        ) : (
-          ""
-        )}
+        <p className="mt-4 mb-8 lg:mb-12">{Description}</p>
+
+        <div className="flex">
+          <ProjectCTA cta={CTA1} link={Link1} userTheme={userTheme} />
+          {CTA2 ? (
+            <ProjectCTA cta={CTA2} link={Link2} userTheme={userTheme} />
+          ) : (
+            ""
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

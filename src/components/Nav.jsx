@@ -46,11 +46,13 @@ const Nav = ({ onEnter, onLeave, active }) => {
           EVENTS
         </Link>
       ) : (
-        <Link to="/events" className=" flex items-center text-[12px] p-3">
+        <Link
+          to="/events"
+          className="nav-link flex items-center text-[12px] p-3"
+        >
           02 <div className="w-[40px] h-[1px] bg-dim-body mx-4"></div> EVENTS
         </Link>
       )}
-
       {/* <Link
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}

@@ -1,6 +1,7 @@
 import React from "react";
-import PinnedContainer from "../components/PinnedContainer";
+import { Link } from "react-router-dom";
 import ActivitiesContainer from "../components/ActivitiesContainer";
+import TalkContainer from "../components/TalkContainer";
 import profile from "../images/kingslee.jpg";
 import github from "../images/icons/Github.svg";
 import twitter from "../images/icons/Twitter.svg";
@@ -8,7 +9,8 @@ import email from "../images/icons/Email.svg";
 import githubDark from "../images/icons/dark/Github.svg";
 import twitterDark from "../images/icons/dark/Twitter.svg";
 import emailDark from "../images/icons/dark/Email.svg";
-import TalkContainer from "../components/TalkContainer";
+import explore from "../images/icons/Planet.svg";
+import exploreDark from "../images/icons/dark/planet.svg";
 import Nav from "../components/Nav";
 
 const Events = ({
@@ -25,7 +27,6 @@ const Events = ({
   const articles = projects.filter(
     (project) => project.fields.Type === "Article"
   );
-  const events = projects.filter((project) => project.fields.Type === "Event");
 
   return (
     <>
@@ -150,7 +151,7 @@ const Events = ({
             onActivityLeave={onActivityLeave}
           />
           {/* <PeopleContainer people={people} userTheme={userTheme} /> */}
-          <p className="text-slate-500 dark:text-dim-body text-sm mx-auto md:block">
+          <p className="text-slate-500 dark:text-dim-body text-sm mx-auto hidden md:block">
             design inspired by{" "}
             <a href="https://kadet.dev/" target="_blank" rel="noreferrer">
               <span className="text-dark dark:text-imagination">Kadet.dev</span>

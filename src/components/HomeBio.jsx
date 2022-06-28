@@ -4,9 +4,9 @@ import profile from "../images/kingslee.jpg";
 
 const HomeBoi = ({ userTheme }) => {
   return (
-    <div className=" w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim">
+    <div className=" w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim ">
       <img
-        className="item w-[120px] md:w-[180px] mx-auto rounded-full mb-8"
+        className="item w-[120px] md:w-[180px] mx-auto rounded-full mb-4 md:mb-8"
         src={profile}
         alt="Nworie Kingslee"
       />
@@ -16,7 +16,7 @@ const HomeBoi = ({ userTheme }) => {
         </p>
 
         {userTheme === "dark" ? (
-          <p className="item mt-3 font-normal mb-6 text-dim-body md:text-[16px]  text-[14px]">
+          <p className="item mt-2 font-normal mb-6 text-dim-body md:text-[16px]  text-[14px]">
             I am a <span className="highlight ">Software developer</span> with
             equal love for <span className="highlight">art & design</span>. I
             like to describe myself as an{" "}
@@ -26,7 +26,7 @@ const HomeBoi = ({ userTheme }) => {
             I know.
           </p>
         ) : (
-          <p className="item mt-3 font-normal mb-6">
+          <p className="item mt-2 font-normal mb-6">
             I am a <span className="darker ">Software developer</span> with
             equal love for <span className="darker">art & design</span>. I like
             to describe myself as an <span className="darker">explorer</span>,
