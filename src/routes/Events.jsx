@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ActivitiesContainer from "../components/ActivitiesContainer";
 import TalkContainer from "../components/TalkContainer";
 import profile from "../images/kingslee.jpg";
@@ -9,8 +8,6 @@ import email from "../images/icons/Email.svg";
 import githubDark from "../images/icons/dark/Github.svg";
 import twitterDark from "../images/icons/dark/Twitter.svg";
 import emailDark from "../images/icons/dark/Email.svg";
-import explore from "../images/icons/Planet.svg";
-import exploreDark from "../images/icons/dark/planet.svg";
 import Nav from "../components/Nav";
 
 const Events = ({
@@ -134,7 +131,8 @@ const Events = ({
           </div>
         </div>
         {/* right flang */}
-        <div className=" w-full lg:w-auto mt-14 project-half">
+        <div className=" w-full lg:w-auto lg:mt-14 project-half">
+          <div className="h-[80px] lg:hidden"></div>
           <TalkContainer
             talks={talks}
             userTheme={userTheme}

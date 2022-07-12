@@ -25,10 +25,6 @@ const Projects = ({
     (project) =>
       project.fields.Type === "Code" || project.fields.Type === "Design"
   );
-  const articles = projects.filter(
-    (project) => project.fields.Type === "Article"
-  );
-  const events = projects.filter((project) => project.fields.Type === "Event");
 
   return (
     <>
@@ -136,7 +132,8 @@ const Projects = ({
           </div>
         </div>
         {/* right flang */}
-        <div className=" w-full lg:w-auto mt-14 project-half">
+        <div className=" w-full lg:w-auto lg:mt-14 project-half">
+          <div className="h-[80px] lg:hidden"></div>
           <PinnedContainer
             projects={pinned}
             userTheme={userTheme}

@@ -21,7 +21,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer "
+          className="text-sm flex mr-4 align-middle cursor-pointer dark:hover:text-white hover:text-dim "
         >
           {userTheme === "dark" ? (
             <img src={liveDark} alt="" className="mr-1" />
@@ -38,7 +38,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer hover:text-white"
         >
           {userTheme === "dark" ? (
             <img src={codeDark} alt="" className="mr-1" />
@@ -55,7 +55,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer w-[120px]"
+          className="text-sm flex mr-4 align-middle cursor-pointer hover:text-white w-[120px]"
         >
           {userTheme === "dark" ? (
             <img src={caseStudyDark} alt="" className="mr-1" />
@@ -74,7 +74,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm align-middle cursor-pointer flex mr-4 w-[120px]"
+          className="text-sm align-middle cursor-pointer hover:text-white flex mr-4 w-[120px]"
         >
           {userTheme === "dark" ? (
             <img src={reportIconDark} alt="" className="mr-1" />
@@ -91,7 +91,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer hover:text-white"
         >
           {userTheme === "dark" ? (
             <img src={reportIconDark} alt="" className="mr-1" />
@@ -108,7 +108,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer hover:text-white"
         >
           {userTheme === "dark" ? (
             <img src={recordingDark} alt="" className="mr-1" />
@@ -125,7 +125,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer"
+          className="text-sm flex mr-4 align-middle cursor-pointer hover:text-white"
         >
           {userTheme === "dark" ? (
             <img src={readDark} alt="" className="mr-1" />
