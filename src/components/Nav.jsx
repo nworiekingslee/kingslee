@@ -35,24 +35,29 @@ const Nav = ({ onEnter, onLeave, active }) => {
           PROJECTS
         </Link>
       )}
+
       {active !== "events" ? (
         <Link
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
           to="/events"
-          className="nav-link flex items-center text-[12px] p-3"
+          className="nav-link flex items-center text-[12px] font-bold p-3"
         >
-          02 <div className="nav-line w-4 h-[1px] bg-dim-body mx-4"></div>{" "}
+          02{" "}
+          <div className="nav-line w-4 h-[1px] bg-dark dark:bg-white mx-4 "></div>{" "}
           EVENTS
         </Link>
       ) : (
         <Link
           to="/events"
-          className="nav-link flex items-center text-[12px] p-3"
+          className="flex items-center text-[12px] font-bold p-3"
         >
-          02 <div className="w-[40px] h-[1px] bg-dim-body mx-4"></div> EVENTS
+          01{" "}
+          <div className="w-[40px] h-[1px] bg-dark dark:bg-white mx-4 "></div>{" "}
+          EVENTS
         </Link>
       )}
+
       {/* <Link
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
