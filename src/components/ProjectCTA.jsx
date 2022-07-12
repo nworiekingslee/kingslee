@@ -21,7 +21,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="text-sm flex mr-4 align-middle cursor-pointer hover:text-white"
+          className="text-sm flex mr-4 align-middle cursor-pointer dark:hover:text-white hover:text-dim "
         >
           {userTheme === "dark" ? (
             <img src={liveDark} alt="" className="mr-1" />
