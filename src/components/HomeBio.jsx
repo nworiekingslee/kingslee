@@ -5,11 +5,13 @@ import profile from "../images/kingslee.jpg";
 const HomeBoi = ({ userTheme }) => {
   return (
     <div className=" w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim ">
-      <img
+      <a href="../images/kingslee.jpg" download>
+        <img
         className="item w-[120px] md:w-[180px] mx-auto rounded-full mb-4 md:mb-8"
         src={profile}
         alt="Nworie Kingslee"
       />
+      </a>
       <div className="max-w-[650px] mx-auto text-center px-6 ">
         <p className="item text-3xl md:text-4xl text-dark font-semibold dark:text-imagination">
           Hello, I am <span className="fancy-text">Nworie Kingsley</span>
