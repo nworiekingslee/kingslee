@@ -5,7 +5,7 @@ import profile from "../images/kingslee.jpg";
 const HomeBoi = ({ userTheme }) => {
   return (
     <div className=" w-full my-auto bg-white flex justify-center align-middle flex-col dark:bg-dim ">
-      <a href="../images/kingslee.jpg" download>
+      <a href="../images/kingslee.jpg">
         <img
         className="item w-[120px] md:w-[180px] mx-auto rounded-full mb-4 md:mb-8"
         src={profile}
