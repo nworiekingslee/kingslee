@@ -28,7 +28,9 @@ const Activities = ({
         onMouseLeave={onActivityLeave}
         className="a w-full bg-white py-6 px-3 mb-2 dark:bg-dim dark:text-dim-body  hidden md:block"
       >
-        {image && <img src={image} alt={Title} />}
+        {image && (
+          <img className="h-56 w-full object-cover" src={image} alt={Title} />
+        )}
         <div className="">
           {/* <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
             {Type}
@@ -53,11 +55,23 @@ const Activities = ({
           )}
         </div>
       </div>
-      <div className="a w-full bg-imagination p-8 mb-2 dark:bg-dim-secondary dark:text-dim-body md:hidden">
+
+      {/* Mobile variant here */}
+      <div className="a w-full bg-white p-2 mb-8 dark:bg-dim dark:text-dim-body md:hidden">
         <div className="">
-          <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
+          {/* <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8">
             {Type}
-          </p>
+          </p> */}
+
+          {image && (
+            <a href={Link1} target="_blank" rel="noreferrer">
+              <img
+                src={image}
+                alt={Title}
+                className="h-56 w-full object-cover"
+              />
+            </a>
+          )}
 
           <div className="mt-4">
             <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">

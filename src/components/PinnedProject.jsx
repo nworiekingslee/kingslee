@@ -49,29 +49,32 @@ const PinnedProject = ({ project, userTheme, onEnter, onLeave }) => {
           </div>
         </div>
       </div>
-      <div className="p w-full bg-imagination dark:bg-dim-secondary dark:text-dim-body p-8 mb-2 md:hidden">
-        <div className="md:flex md:items-center">
-          <p className="tracking-[.15em] font-bold text-dark dark:text-imagination uppercase text-sm mb-8 md:hidden">
-            {Type}
-          </p>
 
-          <div className="">
-            <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
-              {Title}
-            </p>
-            <p className="text-sm">{Label}</p>
+      {/* Mobile variant here */}
+      <div className="p w-full bg-white dark:bg-dim dark:text-dim-body p-2 mb-8 md:hidden">
+        {image && (
+          <a href={Link1} target="_blank" rel="noreferrer">
+            <img src={image} alt={Title} className="h-56 w-full object-cover" />
+          </a>
+        )}
+        <div className="mt-3">
+          <div className="md:flex md:items-center">
+            <div className="">
+              <p className="text-[24px] font-bold text-dark dark:text-imagination leading-tight">
+                {Title}
+              </p>
+              <p className="text-sm">{Label}</p>
+            </div>
           </div>
-        </div>
-
-        <p className="mt-4 mb-8">{Description}</p>
-
-        <div className="flex">
-          <ProjectCTA cta={CTA1} link={Link1} userTheme={userTheme} />
-          {CTA2 ? (
-            <ProjectCTA cta={CTA2} link={Link2} userTheme={userTheme} />
-          ) : (
-            ""
-          )}
+          <p className="mt-4 mb-8">{Description}</p>
+          <div className="flex">
+            <ProjectCTA cta={CTA1} link={Link1} userTheme={userTheme} />
+            {CTA2 ? (
+              <ProjectCTA cta={CTA2} link={Link2} userTheme={userTheme} />
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </>
