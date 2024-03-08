@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { gsap } from "gsap";
 import { Route, Switch, Link } from "react-router-dom";
 import ScrollToTop from "./components/utilities/ScrollToTop";
 import Home from "./routes/home";
@@ -10,14 +12,7 @@ import menu from "./images/icons/menu.svg";
 import menuDark from "./images/icons/dark/menuDark.svg";
 import close from "./images/icons/close.svg";
 import closeDark from "./images/icons/dark/closeDark.svg";
-import Airtable from "airtable";
 import "./App.css";
-
-import { gsap } from "gsap";
-
-const base = new Airtable({
-  apiKey: process.env.REACT_APP_AIRTABLE_API_KEY,
-}).base(process.env.REACT_APP_AIRTABLE_BASE);
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -152,11 +147,11 @@ function App() {
     t2.current = gsap
       .timeline({ ease: "power3.out" })
       .to(q(".a"), {
-        opacity: 0.4,
+        opacity: 0.2,
         duration: 0.1,
       })
       .to(currentTarget, {
-        scale: 1.12,
+        scale: 1.13,
         opacity: 1,
         duration: 0.3,
         ease: "power3.out",
@@ -209,34 +204,60 @@ function App() {
       });
   };
 
+  // AIRTABLE SET UP AND INTEGRATION BEGINS
+  const config = {
+    base: process.env.REACT_APP_AIRTABLE_BASE,
+    projectsTable: "Projects",
+    talksTable: "Talks",
+    view: "Main%20View",
+    apiKey: process.env.REACT_APP_AIRTABLE_API_KEY,
+    maxRecords: 3,
+  };
+
+  const customHeaders = {
+    Authorization: `Bearer ${config.apiKey}`,
+  };
+
   useEffect(() => {
-    function fetchData() {
-      try {
-        base("Projects")
-          .select({ view: "Grid view" })
-          .eachPage((records, fetchNextPage) => {
-            setProjects(records);
-            // console.log("rce", records);
-            fetchNextPage();
-          });
-      } catch (e) {
-        console.log(e);
-      }
+    const fetchProjects = async () => {
+      axios
+        .get(
+          `https://api.airtable.com/v0/${config.base}/${config.projectsTable}`,
+          {
+            headers: customHeaders,
+          }
+        )
+        .then((res) => {
+          const { records } = res.data;
+          setProjects(records);
+        })
+        .catch((err) => {
+          console.log("We got trouble loading the projects");
+        });
+    };
 
-      try {
-        base("Talks")
-          .select({ view: "Grid view" })
-          .eachPage((records, fetchNextPage) => {
-            setTalks(records);
-            fetchNextPage();
-          });
-      } catch (e) {
-        console.log(e);
-      }
-    }
+    const fetchTalks = async () => {
+      axios
+        .get(
+          `https://api.airtable.com/v0/${config.base}/${config.talksTable}`,
+          {
+            headers: customHeaders,
+          }
+        )
+        .then((res) => {
+          const { records } = res.data;
+          setTalks(records);
+        })
+        .catch((err) => {
+          console.log("We got trouble loading the events");
+        });
+    };
 
-    fetchData();
+    fetchProjects();
+    fetchTalks();
   }, []);
+
+  // AIRTABLE SET UP AND INTEGRATION ENDS
 
   useState(() => {
     if (systemTheme) {
