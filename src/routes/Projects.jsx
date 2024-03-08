@@ -23,7 +23,8 @@ const Projects = ({
   const pinned = projects.filter((project) => project.fields.Pinned);
   const activities = projects.filter(
     (project) =>
-      project.fields.Type === "Code" || project.fields.Type === "Design"
+      (project.fields.Type === "Code" || project.fields.Type === "Design") &&
+      !project.fields.Pinned
   );
 
   return (
