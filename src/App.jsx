@@ -147,11 +147,11 @@ function App() {
     t2.current = gsap
       .timeline({ ease: "power3.out" })
       .to(q(".a"), {
-        opacity: 0.4,
+        opacity: 0.2,
         duration: 0.1,
       })
       .to(currentTarget, {
-        scale: 1.12,
+        scale: 1.13,
         opacity: 1,
         duration: 0.3,
         ease: "power3.out",
