@@ -45,10 +45,15 @@ const Footer = ({ userTheme }) => {
         </a>
       </div>
 
-      <p className="text-slate-500 dark:text-dim-body text-sm mx-auto">
-        design inspired by{" "}
-        <a href="https://kadet.dev/" target="_blank" rel="noreferrer">
-          <span className="text-dark dark:text-imagination">Kadet.dev</span>
+      <p className="text-slate-500 dark:text-dim-body text-sm mx-auto font-semibold">
+        {"</"} Find source code{" "}
+        <a
+          href="https://github.com/nworiekingslee/kingslee"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span className="text-dark dark:text-imagination">here</span>
+          {"/>"}
         </a>
       </p>
     </div>
