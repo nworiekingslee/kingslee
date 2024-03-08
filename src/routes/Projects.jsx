@@ -132,7 +132,7 @@ const Projects = ({
           </div>
         </div>
         {/* right flang */}
-        <div className=" w-full lg:w-auto lg:mt-14 project-half">
+        <div className=" w-full lg:w-auto lg:mt-14 mt-8 project-half">
           <div className="h-[80px] lg:hidden"></div>
           <PinnedContainer
             projects={pinned}
