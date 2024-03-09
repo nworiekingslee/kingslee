@@ -98,7 +98,7 @@ const ProjectCTA = ({ cta, link, userTheme }) => {
           ) : (
             <img src={reportIcon} alt="" className="mr-1" />
           )}
-          {cta}
+          Report
         </a>
       ) : (
         ""
