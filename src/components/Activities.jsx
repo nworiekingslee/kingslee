@@ -19,7 +19,9 @@ const Activities = ({
     Thumbnail,
   } = project.fields;
 
-  const image = Thumbnail?.[0]?.thumbnails?.full?.url;
+  const image =
+    Thumbnail?.[0]?.thumbnails?.large?.url ||
+    Thumbnail?.[0]?.thumbnails?.full?.url;
 
   return (
     <>

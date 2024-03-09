@@ -8,14 +8,17 @@ const ActivitiesContainer = ({
   onActivityEnter,
   onActivityLeave,
 }) => {
+  const sortedProjects = projects.sort(
+    (a, b) => a.fields.Number - b.fields.Number
+  );
   const rightProject = [];
   const leftProject = [];
 
-  for (let i = 0; i < projects.length; i++) {
+  for (let i = 0; i < sortedProjects.length; i++) {
     if (i % 2 === 1) {
-      rightProject.push(projects[i]);
+      rightProject.push(sortedProjects[i]);
     } else {
-      leftProject.push(projects[i]);
+      leftProject.push(sortedProjects[i]);
     }
   }
 
